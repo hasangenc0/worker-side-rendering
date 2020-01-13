@@ -1,0 +1,13 @@
+{
+  "extends": "../generic-tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es6",
+    "lib": ["esnext", "es6", "dom"],
+    "types": ["@types/node"],
+  },
+  "references": [
+    {"path": "../components"},
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "extends": "../generic-tsconfig.json",
+  "compilerOptions": {
+    "lib": ["esnext", "es6", "webworker", "dom"],
+    "allowJs":true
+  }
+}

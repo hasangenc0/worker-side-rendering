@@ -9,10 +9,10 @@ Main idea is using service workers to caching only templates of the parts of the
 ## How
 * Server Configuration
   * `/` and `/trendyol` routes serve full html with content.
-  * if this routes have `?contentOnly=true` parameter, they just sends the content of the page.
+  * If this routes have `?contentOnly=true` parameter, server just sends the content of that page.
   * Serve templates.
-  * `/template` send template of the `/` page.
-  * `/trendyol/partials/:partial` sends multiple templates of the `/trendyol` page.
+  * `/template` serves template of the `/` page.
+  * `/trendyol/partials/:partial` serves multiple templates of the `/trendyol` page.
  
 * Service Worker Configuration
   * After installation of service worker cache the templates of that page.

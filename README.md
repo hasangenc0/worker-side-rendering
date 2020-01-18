@@ -16,9 +16,10 @@ Main idea is using service workers to caching only templates of the parts of the
  
 * Service Worker Configuration
   * After installation of service worker cache the templates of that page.
-  * When user request this pages again block the request.
-  * Fetch only of the page using `?contentOnly=true` parameter.
-  * And finally render cached templates.
+  * When browser sends request again, block the request.
+  * Fetch only content of the page using `?contentOnly=true` parameter.
+  * Render templates with fetched content.
+  * Return response that contains generated html.
 
 ## Performance Metrics
 <a href="https://ibb.co/YRWLnvS"><img src="https://i.ibb.co/xCs79Vb/Screen-Shot-2020-01-12-at-22-26-24.png" alt="Screen-Shot-2020-01-12-at-22-26-24" border="0"></a>

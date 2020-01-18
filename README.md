@@ -4,20 +4,21 @@
 This app built for showing how to cut html payload with service workers. (insipired by [this article](https://philipwalton.com/articles/smaller-html-payloads-with-service-workers/))
 
 ## Idea
-Main idea is using service workers to caching only template of the page (not full page) and serving just content of the page when user sends request to server.
+Main idea is using service workers to caching only templates of the parts of the page (not contains data) and serving just content to feed those templates when browser sends request to server.
 
 ## How
-I create both `template-only` and `react` (ssr) app to apply this architecture.
-
-- `/` page is server side preact app that hydrates in client side.
-- `/trendyol` page is just server side app that doesn't have client side rendering.
-
-#### Steps
-1) Create content only version of the page. (in this app `/?contentOnly=true` sends just content of the page)
-2) Split your page's parts to micro templates and serve them.
-3) Cache your templates with service workers.
-4) Configure your service workers to render that templates in proper routes and datas.
-5) Set up your cache invalidation system.
+* Server Configuration
+  * `/` and `/trendyol` routes serve full html with content.
+  * if this routes have `?contentOnly=true` parameter, they just sends the content of the page.
+  * Serve templates.
+  * `/template` send template of the `/` page.
+  * `/trendyol/partials/:partial` sends multiple templates of the `/trendyol` page.
+ 
+* Service Worker Configuration
+  * After installation of service worker cache the templates of that page.
+  * When user request this pages again block the request.
+  * Fetch only of the page using `?contentOnly=true` parameter.
+  * And finally render cached templates.
 
 ## Performance Metrics
 <a href="https://ibb.co/YRWLnvS"><img src="https://i.ibb.co/xCs79Vb/Screen-Shot-2020-01-12-at-22-26-24.png" alt="Screen-Shot-2020-01-12-at-22-26-24" border="0"></a>
